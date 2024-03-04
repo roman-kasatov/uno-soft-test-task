@@ -23,7 +23,7 @@ public class Solver {
     /**
      * Пытается прочитать следующий фрагмент до знака <b>;</b> (или конца строки).
      * <p>
-     * Корректный фрагмент имеет вид "[^"]*", например, "123".
+     * Корректный фрагмент это "[^"]*", например, "123", или пустая строка.
      * <p>
      * Если следующий фрагмент некорректный, будет установлен флаг {@code node.corrupted = true}.
      * В любом случае будет обновлено значение {@code node.offset}.
@@ -41,7 +41,7 @@ public class Solver {
         }
 
         String fragmentRegex = "\"[^\"]*\"";
-        if (fragment.matches(fragmentRegex)) {
+        if (fragment.matches(fragmentRegex) || fragment.isEmpty()) {
             return fragment;
         } else {
             node.corrupted = true;
