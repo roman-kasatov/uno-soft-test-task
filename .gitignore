@@ -40,3 +40,4 @@ build/
 
 ### local text files ###
 /*.txt
+/*.csv

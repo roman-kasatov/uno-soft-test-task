@@ -23,7 +23,7 @@ public class Solver {
     /**
      * Пытается прочитать следующий фрагмент до знака <b>;</b> (или конца строки).
      * <p>
-     * Корректный фрагмент имеет вид /"\d*"/, например, "123".
+     * Корректный фрагмент имеет вид "[^"]*", например, "123".
      * <p>
      * Если следующий фрагмент некорректный, будет установлен флаг {@code node.corrupted = true}.
      * В любом случае будет обновлено значение {@code node.offset}.
@@ -40,7 +40,7 @@ public class Solver {
             node.offset = semicolonPos + 1;
         }
 
-        String fragmentRegex = "\"\\d*\"";
+        String fragmentRegex = "\"[^\"]*\"";
         if (fragment.matches(fragmentRegex)) {
             return fragment;
         } else {
