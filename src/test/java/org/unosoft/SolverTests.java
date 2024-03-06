@@ -52,19 +52,6 @@ public class SolverTests {
                     "200";"";"100\""""
             )
     );
-    List<String> nonUniqueLines = blockToList(
-            """
-            "200";"123";"100"
-            "111";"123"
-            "200";"123";"100\""""
-    );
-    List<List<String>> nonUniqueLinesAnswer = List.of(
-            blockToList(
-                """
-                "111";"123"
-                "200";"123";"100\""""
-            )
-    );
     List<String> emptyStrings1 = blockToList(
             """
             "";"";""
@@ -120,13 +107,6 @@ public class SolverTests {
         );
         Assertions.assertEquals(emptyStringsAnswer.size(), result.size());
     }
-
-    @Test
-    void testNonUniqueLines() {
-        List<List<String>> result = solver.solve(nonUniqueLines);
-        Assertions.assertEquals(nonUniqueLinesAnswer, result);
-    }
-
     @Test
     void testEmptyStrings1() {
         List<List<String>> result = solver.solve(emptyStrings1);

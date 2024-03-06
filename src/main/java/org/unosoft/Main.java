@@ -17,7 +17,7 @@ public class Main {
 
         List<String> lines;
         try (BufferedReader reader = new BufferedReader(new FileReader(args[0]))) {
-            lines = reader.lines().toList();
+            lines = reader.lines().distinct().toList();
         } catch (FileNotFoundException e) {
             System.out.println("Нет файла: " + e);
             return;
